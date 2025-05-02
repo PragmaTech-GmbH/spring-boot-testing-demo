@@ -41,14 +41,19 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.5.3</version>
                 <configuration>
-                    <redirectTestOutputToFile>true</redirectTestOutputToFile>
-                    <reportsDirectory>${project.build.directory}/test-reports</reportsDirectory>
+<!--                    <redirectTestOutputToFile>true</redirectTestOutputToFile>-->
+<!--                    <reportsDirectory>${project.build.directory}/test-reports</reportsDirectory>-->
                     <forkCount>2</forkCount>
                     <reuseForks>true</reuseForks>
                     <parallel>classes</parallel>
                     <argLine>-Xmx512m</argLine>
                     <threadCount>4</threadCount>
+                    <systemPropertyVariables>
+                        <test.timer.top.tests>15</test.timer.top.tests>
+                        <test.timer.slow.threshold.ms>1000</test.timer.slow.threshold.ms>
+                    </systemPropertyVariables>
                     <properties>
+
                         <configurationParameters>
                             junit.jupiter.execution.parallel.enabled=true
                             junit.jupiter.execution.parallel.mode.default=same_thread
