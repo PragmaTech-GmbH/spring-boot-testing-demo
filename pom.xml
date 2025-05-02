@@ -53,7 +53,6 @@
                         <test.timer.slow.threshold.ms>1000</test.timer.slow.threshold.ms>
                     </systemPropertyVariables>
                     <properties>
-
                         <configurationParameters>
                             junit.jupiter.execution.parallel.enabled=true
                             junit.jupiter.execution.parallel.mode.default=same_thread
@@ -61,6 +60,20 @@
                         </configurationParameters>
                     </properties>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>pragmatech.digital</groupId>
+                <artifactId>test-timer-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <id>generate-test-timer-report</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
